@@ -10,34 +10,30 @@ ac = {
 	versionCheck = true,
 
 	-- Server name shown in the scoreboard header.
-	serverName = 'AC Scoreboard',
+	serverName = 'Criminals Paradise RP',
 
 	-- Command name to open the scoreboard UI.
 	commandName = 'scoreboard',
 
 	-- Default keybind for the '/scoreboard' command.
-	commandKey = 'DELETE',
+	commandKey = 'HOME',
 
 	-- Which parts of the scoreboard should be visible (both, groups, players).
 	visibleParts = 'both',
 
 	-- On which side of the screen the scoreboard should be (left, right).
-	drawerSide = 'right',
+	drawerSide = 'left',
 
 	-- Group list shown in the scoreboard.
 	groupList = {
 		{
 			label = 'Police',
-			groups = {'police', 'sheriff'}
+			groups = {'police', 'sasp', 'bcso', 'sapr'}
 		},
 		{
 			label = 'EMS',
 			groups = {'ambulance'},
 			separator = true
-		},
-		{
-			label = 'Taxi',
-			groups = {'taxi'}
 		},
 		{
 			label = 'Mechanic',
