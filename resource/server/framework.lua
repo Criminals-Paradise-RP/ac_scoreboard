@@ -38,7 +38,9 @@ local jobs = {
 			onDuty = onDuty,
 		}
 
-		if onDuty then self.add(data.name) end
+		if onDuty then
+			self.add(data.name)
+		end
 	end,
 
 	---@param data JobData
@@ -54,8 +56,12 @@ local jobs = {
 			onDuty = onDuty,
 		}
 
-		if onDuty then self.add(data.name) end
-		if lastJob.onDuty then self.remove(lastJob.name) end
+		if onDuty then
+			self.add(data.name)
+		end
+		if lastJob.onDuty then
+			self.remove(lastJob.name)
+		end
 	end
 }
 
@@ -63,7 +69,9 @@ AddEventHandler('playerDropped', function()
 	local lastJob = players[source]
 	players[source] = nil
 
-	if lastJob?.onDuty then jobs.remove(lastJob.name) end
+	if lastJob?.onDuty then
+		jobs.remove(lastJob.name)
+	end
 end)
 
 
@@ -114,6 +122,15 @@ elseif core == 'qb' then
 			onDuty = player.job.onduty,
 			source = player.source
 		})
+	end)
+
+	AddEventHandler('QBCore:Server:OnPlayerUnload', function(source)
+		local lastJob = players[source]
+		players[source] = nil
+
+		if lastJob?.onDuty then
+			jobs.remove(lastJob.name)
+		end
 	end)
 
 	AddEventHandler('QBCore:Player:SetPlayerData', function(player)
